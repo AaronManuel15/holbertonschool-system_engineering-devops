@@ -17,4 +17,4 @@ sudo sed -i "s|$firstLocation|$secondLocation|1" /etc/nginx/sites-available/defa
 
 
 
-sudo /etc/init.d/nginx reload
+sudo /etc/init.d/nginx restart
