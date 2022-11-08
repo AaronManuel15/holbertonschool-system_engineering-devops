@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Task 4: Configures Nginx server to have a custom 404 page that contains a french string 
+sudo apt-get update
+sudo apt-get install -y nginx
+sudo ufw allow 'Nginx HTTP'
+
+
+sudo rm /var/www/html/*
+sudo echo "Hello World!" | sudo tee /var/www/html/index.html
+sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/404Error.html
+
+link="https://www.youtube.com/watch?v=QH2-TGUlwu4"
+firstLocation="^\tlocation / {"
+secondLocation="\tlocation /redirect_me {\n\t\t return 301 $link;\n\t}\n\terror_page 404 /404Error.html;\n\tlocation / {"
+
+sudo sed -i "s|$firstLocation|$secondLocation|1" /etc/nginx/sites-available/default
+
+
+
+sudo /etc/init.d/nginx reload
