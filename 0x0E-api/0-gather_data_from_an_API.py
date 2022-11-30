@@ -27,10 +27,10 @@ def data_gather():
 
     success_count = len(todo_list)
 
-    print('Employee {} is done with ({}/{})'
+    print('Employee {} is done with tasks({}/{}):'
           .format(user_name, success_count, todo_length))
     for item in todo_list:
-        print('  {}'.format(item))
+        print('\t {}'.format(item))
 
 
 if __name__ == "__main__":
