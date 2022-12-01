@@ -18,7 +18,7 @@ def data_gather_all_to_json():
 
     todo_res = todo_res.json()
     user_res = user_res.json()
-    
+
     employeeDict = {}
     fullDict = {}
 
